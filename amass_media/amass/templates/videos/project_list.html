@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+  {% block content %}
+
+  <h2>Project Listings</h2>
+  <form class="well form-search" action="/projects/" method="get">
+  <input type="text" class="span3 search-query" placeholder="Search..." />
+  <select name="criteria">
+  <option value="project">Projects</option>
+  <option value="budget">Budget</option>
+  </select>
+  <input type="submit" value="Submit">
+  </form>
+  
+  
+  {% if orgrep %}
+     <a href="/projects/create">Create A Project</a>
+  {% endif %}
+  <ul>
+  {% for proj in projects %}
+  <li><a href="/projects/detail/{{ proj.id }}">{{ proj.id }}</a></li>
+  {% endfor %}
+  </ul>
+
+  {% endblock %}
+

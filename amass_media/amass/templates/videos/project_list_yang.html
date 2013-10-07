@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+  {% block content %}
+  <h1>Projects</h1>
+  <ul>
+  {% for proj in projects %}
+  <li><a href="/projects/{% block edit_or_detail %}{% endblock %}/{{ proj.id }}">{{ proj.id }}</a></li>
+  {% endfor %}
+  </ul>
+
+  {% endblock %}
+

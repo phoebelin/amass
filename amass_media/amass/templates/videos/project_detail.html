@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block extrahead %}
+<link type="text/stylesheet" href="{{ STATIC_URL }}css/follow-button.css" rel="stylesheet">
+{% endblock %}
+
+  {% block content %}
+<div class="container">
+    <button class="btn followButton" rel="6">Follow</button>
+</div>
+  {% if orgrep %}
+     <a href="/projects/edit/{{ project.id }}">Edit Project</a>
+  {% endif %}
+<a href="{% url postman_write username %}">write to {{ username }}</a>  
+<h1>{{ project.creator.username }}</h1>
+  <ul>
+  <li>{{ username }}</li>
+  <li>{{ STATIC_URL }}</li>
+  <li>{{ project.budget }}</li>
+  <li>{{ project.name }}</li>
+  </ul>
+
+  {% endblock %}
+
+{% block scripts %}
+<script> var projectId = {{ project.id }}; </script>
+<script type="text/javascript" src="{{ STATIC_URL }}js/follow-button.js">
+</script>
+
+
+{% endblock %}
+
+
